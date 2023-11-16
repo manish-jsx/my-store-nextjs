@@ -7,15 +7,29 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <style>
         body {
-            background: linear-gradient(90deg, #38b2ac, #9333ea);
+            background: antiquewhite;
         }
 
         h1 {
             font-size: 3.5rem;
             font-weight: 800; /* Equivalent to 'extrabold' in Tailwind */
-            color: transparent;
+            color: linear-gradient(90deg, #38b2ac, #9333ea);
             background-clip: text;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better visibility */
+        }
+
+        @media (min-width: 768px) {
+            /* Custom styles for screens 768px and above */
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Custom styles for screens 1024px and above */
+            h1 {
+                font-size: 5rem;
+            }
         }
     </style>
 </head>
