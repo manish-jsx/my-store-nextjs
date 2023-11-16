@@ -1,16 +1,19 @@
 {
   "name": "ShopMerch",
   "version": "1.0.0",
-  "description": "shopping website",
-  "main": "index.html", 
+  "description": "",
+  "main": "index.js",
   "scripts": {
-  "build": "npm run index.js"
-  "start": "node index.js"
+    "build": "netlify deploy --prod"
   },
   "keywords": [],
-  "author": "unknown",
-  "license": "MIT", 
-  "dependencies": {  "csv-writer": "^1.6.0"
-  },
-  "devDependencies": {}
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "netlify-cli": "^12.7.2",
+    "netlify-lambda": "^2.0.15",
+    "serverless-http": "^2.7.0"
+    "csv-writer": "^1.6.0"
+  }
 }
