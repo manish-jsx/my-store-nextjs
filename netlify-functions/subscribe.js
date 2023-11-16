@@ -34,6 +34,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: "Subscription successful" }),
     };
   } catch (error) {
+    console.error('Error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal Server Error" }),
