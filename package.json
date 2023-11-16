@@ -4,7 +4,8 @@
   "description": "shopping website",
   "main": "index.html", 
   "scripts": {
-    "start": "node index.js"
+  "build": "npm run index.js"
+  "start": "node index.js"
   },
   "keywords": [],
   "author": "unknown",
