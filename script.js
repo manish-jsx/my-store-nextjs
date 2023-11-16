@@ -30,6 +30,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     };
 
+    // Function to handle form submission using fetch
+    const handleFormSubmission = function (url, data, successCallback, errorCallback) {
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => successCallback(data))
+        .catch(error => errorCallback(error));
+    };
+
     // Get the newsletter form
     const newsletterForm = document.getElementById('newsletterForm');
 
@@ -43,9 +57,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validate the email
         if (validateNewsletterForm(email)) {
-            // Perform the AJAX request or any other logic to handle the subscription
-            console.log('Newsletter form submitted with email:', email);
-            // You can use fetch() or another method to send the data to the server
+            // Perform the AJAX request to the Netlify function
+            handleFormSubmission(
+                'https://shopmerch.netlify.app/.netlify/functions/subscribe',
+                { email },
+                (data) => {
+                    console.log('Newsletter form submitted:', data);
+                    // You can customize the success handling here
+                    alert('Subscription successful!');
+                },
+                (error) => {
+                    console.error('Newsletter form submission error:', error);
+                    // You can customize the error handling here
+                    alert('An error occurred during subscription.');
+                }
+            );
 
             // Clear the email input
             emailInput.value = '';
@@ -70,9 +96,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validate the inputs
         if (validateContactForm(name, email, message)) {
-            // Perform the AJAX request or any other logic to handle the contact form
-            console.log('Contact form submitted with data:', { name, email, message });
-            // You can use fetch() or another method to send the data to the server
+            // Perform the AJAX request to the Netlify function
+            handleFormSubmission(
+                'https://shopmerch.netlify.app/.netlify/functions/contact',
+                { name, email, message },
+                (data) => {
+                    console.log('Contact form submitted:', data);
+                    // You can customize the success handling here
+                    alert('Message sent successfully!');
+                },
+                (error) => {
+                    console.error('Contact form submission error:', error);
+                    // You can customize the error handling here
+                    alert('An error occurred while sending the message.');
+                }
+            );
 
             // Clear the form inputs
             nameInput.value = '';
