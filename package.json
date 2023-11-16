@@ -2,13 +2,13 @@
   "name": "ShopMerch",
   "version": "1.0.0",
   "description": "shopping website",
-  "main": "index.js", // Change to your entry point file
+  "main": "index.html", 
   "scripts": {
-    "start": "node index.js" // Change to your start command
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "unknown",
-  "license": "MIT", // Choose a license
+  "license": "MIT", 
   "dependencies": {  "csv-writer": "^1.6.0"
   },
   "devDependencies": {}
